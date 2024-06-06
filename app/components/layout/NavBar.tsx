@@ -6,8 +6,8 @@ import { playfair } from '../../utils/fonts';
 
 const links = [
   { href: '/', label: 'Home' },
-  { href: '#aboutMe', label: 'About' },
-  { href: '/experience', label: 'Experience' },
+  { href: '#about', label: 'About' },
+  { href: '#experience', label: 'Experience' },
   { href: '/projects', label: 'Projects' },
   { href: '/contact', label: 'Contact' },
 ];
@@ -15,7 +15,7 @@ const links = [
 const NavBar = () => {
   const [isSelected, setIsSelected] = useState('');
   return (
-    <nav className="sticky top-0 flex justify-between items-center py-4 px-8">
+    <nav className="sticky top-0 flex justify-between items-center py-4 px-8 bg-base-100 z-50">
       <Link href="/" className={playfair.className}>
         Y.Shalom;
       </Link>
