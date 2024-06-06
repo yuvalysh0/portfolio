@@ -4,7 +4,10 @@ import { playfair } from '../utils/fonts';
 
 const AboutMe = () => {
   return (
-    <div className="flex flex-col justify-center min-h-screen p-10 md:pe-56">
+    <div
+      className="flex flex-col justify-center min-h-screen p-10 md:pe-56"
+      id="about"
+    >
       <h1 className={`text-6xl font-bold mb-2 ${playfair.className}`}>
         About Me.
       </h1>
