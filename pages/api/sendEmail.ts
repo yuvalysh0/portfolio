@@ -27,9 +27,8 @@ export default async function handler(
     await transporter.sendMail({
       from: email,
       to: process.env.GMAIL_USER,
-      subject: `Contact form submission from ${name}`,
+      subject: `You Got a message from your website from ${name}`,
       html: `
-        <h1>You Got a message from your website!</h1>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Message:</strong></p>
