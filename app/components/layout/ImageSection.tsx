@@ -1,8 +1,10 @@
+'use client';
 import Image from 'next/image';
 import React from 'react';
 import profilePic from '../../assets/images/profile-picture.jpg';
 import { SocialIcon } from '../SocialIcon';
 import { FaFacebook, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { Toaster, toast } from 'react-hot-toast';
 
 export const socialItems = [
   {
@@ -20,6 +22,17 @@ const ImageSection = () => {
   return (
     <section className="relative w-screen h-[50vh] flex md:fixed md:right-0 md:top-0 md:h-full items-center justify-center bg-primary md:w-5/12">
       <Image
+        onClick={() =>
+          toast(`I Know I'm cute but don't push me`, {
+            icon: '🤪',
+            duration: 2500,
+            style: {
+              border: '1px solid #D0C1D6',
+              padding: '12px',
+              color: '#D0C1D6',
+            },
+          })
+        }
         className="md:sticky object-cover rounded-full overflow-hidden w-[65%] aspect-square md:w-56 lg:w-72 drop-shadow-2xl shadow-slate-400 md:hover:border-2 md:hover:border-rose-400 md:transition-all md:duration-200 md:hover:scale-105"
         src={profilePic}
         alt="Profile Picture"
@@ -34,6 +47,7 @@ const ImageSection = () => {
           />
         ))}
       </div>
+      <Toaster />
     </section>
   );
 };
