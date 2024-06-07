@@ -10,7 +10,7 @@ const Experience = () => {
       id="experience"
     >
       <h1
-        className={`text-5xl md:text-6xl text-primary-content font-bold mb-8 md:mb-12 ${playfair.className}`}
+        className={`text-5xl md:text-6xl font-bold mb-8 md:mb-12 ${playfair.className}`}
       >
         Experience.
       </h1>

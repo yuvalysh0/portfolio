@@ -5,7 +5,7 @@ import { playfair } from '../utils/fonts';
 const Hero = () => {
   return (
     <div
-      className="flex flex-col md:justify-center min-h-[50vh] md:min-h-screen p-10 md:pe-56 bg-primary md:bg-white  text-white md:text-black"
+      className="flex flex-col md:justify-center min-h-[50vh] md:min-h-screen p-10 md:pe-56 bg-primary md:bg-inherit  text-white md:text-black"
       id="home"
     >
       <h1

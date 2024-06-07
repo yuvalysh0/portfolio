@@ -3,21 +3,21 @@ import Image from 'next/image';
 import React from 'react';
 import profilePic from '../../assets/images/profile-picture.jpg';
 import { SocialIcon } from '../SocialIcon';
-import { FaFacebook, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa';
 import { Toaster, toast } from 'react-hot-toast';
 
 export const socialItems = [
   {
-    link: 'https://www.facebook.com/yuval.shalom.980',
-    icon: <FaFacebook />,
+    link: 'https://www.linkedin.com/in/yuvalshalom',
+    icon: <FaLinkedin />,
   },
-  { link: 'https://twitter.com/GavishAmit', icon: <FaLinkedin /> },
+  { link: 'https://twitter.com/yuvalysh0', icon: <FaTwitter /> },
   { link: 'https://github.com/yuvalysh0', icon: <FaGithub /> },
 ];
 
 const ImageSection = () => {
   const iconsStyle =
-    'text-white text-xl lg:text-2xl transform transition-transform duration-300 hover:scale-125 hover:rotate-12 md:hover:-translate-x-2';
+    'text-white text-xl md:text-2xl lg:text-3xl transform transition-transform duration-300 hover:scale-125 hover:rotate-12 md:hover:-translate-x-2';
 
   return (
     <section className="relative w-screen h-[50vh] flex md:fixed md:right-0 md:top-0 md:h-full items-center justify-center bg-primary md:w-5/12">
@@ -33,7 +33,7 @@ const ImageSection = () => {
             },
           })
         }
-        className="md:sticky object-cover rounded-full overflow-hidden w-[65%] aspect-square md:w-56 lg:w-72 drop-shadow-2xl shadow-slate-400 md:hover:border-2 md:hover:border-rose-400 md:transition-all md:duration-200 md:hover:scale-105"
+        className="md:sticky object-cover rounded-full overflow-hidden w-[65%] aspect-square md:w-56 lg:w-80 drop-shadow-2xl shadow-slate-400 md:hover:border-2 md:hover:border-rose-400 md:transition-all md:duration-200 md:hover:scale-105"
         src={profilePic}
         alt="Profile Picture"
       />
