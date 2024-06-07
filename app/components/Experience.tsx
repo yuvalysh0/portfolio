@@ -6,11 +6,11 @@ import { BsCheckCircleFill } from 'react-icons/bs';
 const Experience = () => {
   return (
     <div
-      className="flex flex-col justify-center min-h-screen p-10 my-24"
+      className="flex flex-col justify-center min-h-[70vh] md:min-h-screen p-10 mt-24"
       id="experience"
     >
       <h1
-        className={`text-6xl text-primary-content font-bold mb-12 ${playfair.className}`}
+        className={`text-5xl md:text-6xl text-primary-content font-bold mb-8 md:mb-12 ${playfair.className}`}
       >
         Experience.
       </h1>
