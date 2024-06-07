@@ -3,16 +3,16 @@ import Image from 'next/image';
 import React from 'react';
 import profilePic from '../../assets/images/profile-picture.jpg';
 import { SocialIcon } from '../SocialIcon';
-import { FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa';
 import { Toaster, toast } from 'react-hot-toast';
+import { IconName } from '@fortawesome/fontawesome-svg-core';
 
 export const socialItems = [
   {
     link: 'https://www.linkedin.com/in/yuvalshalom',
-    icon: <FaLinkedin />,
+    icon: 'linkedin-in',
   },
-  { link: 'https://twitter.com/yuvalysh0', icon: <FaTwitter /> },
-  { link: 'https://github.com/yuvalysh0', icon: <FaGithub /> },
+  { link: 'https://twitter.com/yuvalysh0', icon: 'twitter' },
+  { link: 'https://github.com/yuvalysh0', icon: 'github' },
 ];
 
 const ImageSection = () => {
@@ -27,22 +27,22 @@ const ImageSection = () => {
             icon: '🤪',
             duration: 2500,
             style: {
-              border: '1px solid #D0C1D6',
+              border: '1px solid #65C3C7',
               padding: '12px',
-              color: '#D0C1D6',
+              color: '#65C3C7',
             },
           })
         }
-        className="md:sticky object-cover rounded-full overflow-hidden w-[65%] aspect-square md:w-56 lg:w-80 drop-shadow-2xl shadow-slate-400 md:hover:border-2 md:hover:border-rose-400 md:transition-all md:duration-200 md:hover:scale-105"
+        className="md:sticky object-cover rounded-full overflow-hidden w-[65%] aspect-square md:w-56 lg:w-80 drop-shadow-2xl shadow-slate-400 md:hover:border-2 md:hover:border-sky-700 md:transition-all md:duration-200 md:hover:scale-105"
         src={profilePic}
         alt="Profile Picture"
       />
       <div className="hidden md:flex fixed right-0 top-1/2 transform -translate-y-1/2 flex-col space-y-4 pr-4">
-        {socialItems.map((item) => (
+        {socialItems.map(({ link, icon }) => (
           <SocialIcon
-            key={item.link}
-            link={item.link}
-            icon={item.icon}
+            key={link}
+            link={link}
+            icon={icon as IconName}
             style={iconsStyle}
           />
         ))}

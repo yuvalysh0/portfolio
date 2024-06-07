@@ -1,15 +1,19 @@
 import React from 'react';
-
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconName, library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+// Add all icons to the library so you can use it in your page
+library.add(fab);
 
 interface ISocialIcon {
-  icon: React.ReactNode;
+  icon: IconName;
   link: string;
   style: string;
 }
 
-export const SocialIcon: React.FC<ISocialIcon> = ({ icon, link, style }) => (
-  <Link href={link} className={style}>
-    {icon}
+export const SocialIcon = ({ icon, link, style }: ISocialIcon) => (
+  <Link href={link} className={style} target="_blank" rel="noopener noreferrer">
+    <FontAwesomeIcon icon={['fab', `${icon}`]} />
   </Link>
 );
