@@ -15,12 +15,12 @@ export const socialItems = [
 
 const ImageSection = () => {
   const iconsStyle =
-    'text-white text-2xl transform transition-transform duration-300 hover:scale-125 hover:rotate-12 md:hover:-translate-x-2';
+    'text-white text-xl lg:text-2xl transform transition-transform duration-300 hover:scale-125 hover:rotate-12 md:hover:-translate-x-2';
 
   return (
     <section className="relative w-screen h-[50vh] flex md:fixed md:right-0 md:top-0 md:h-full items-center justify-center bg-primary md:w-5/12">
       <Image
-        className="md:sticky object-cover rounded-full overflow-hidden w-[65%] aspect-square md:w-72 drop-shadow-2xl shadow-slate-400 md:hover:border-2 md:hover:border-rose-400 md:transition-all md:duration-200 md:hover:scale-105"
+        className="md:sticky object-cover rounded-full overflow-hidden w-[65%] aspect-square md:w-56 lg:w-72 drop-shadow-2xl shadow-slate-400 md:hover:border-2 md:hover:border-rose-400 md:transition-all md:duration-200 md:hover:scale-105"
         src={profilePic}
         alt="Profile Picture"
       />
