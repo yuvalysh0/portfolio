@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { playfair } from '../../utils/fonts';
 import { Link as ScrollLink } from 'react-scroll';
+import { CgMenuRight, CgClose } from 'react-icons/cg';
 
 const links = [
   { href: 'home', label: 'Home' },
@@ -15,6 +16,9 @@ const links = [
 
 const NavBar = () => {
   const [isSelected, setIsSelected] = useState('Home');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   return (
     <nav className="sticky navbar top-0 w-screen md:w-full flex justify-between items-center py-4 px-8 bg-base-100 z-50">
@@ -39,6 +43,33 @@ const NavBar = () => {
           </ScrollLink>
         ))}
       </div>
+      <div className="md:hidden">
+        <CgMenuRight className="text-2xl cursor-pointer" onClick={toggleMenu} />
+      </div>
+
+      {isMenuOpen && (
+        <div className="md:hidden fixed inset-0 bg-base-100 flex flex-col gap-6 items-center justify-center z-50">
+          <CgClose
+            className="text-2xl cursor-pointer absolute top-4 right-6"
+            onClick={toggleMenu}
+          />
+          {links.map(({ href, label }) => (
+            <ScrollLink
+              key={label}
+              to={href}
+              smooth={true}
+              duration={500}
+              spy={true}
+              offset={-70}
+              className="text-gray-500 hover:text-gray-600 cursor-pointer text-2xl"
+              onSetActive={() => setIsSelected(label)}
+              onClick={toggleMenu}
+            >
+              {label}
+            </ScrollLink>
+          ))}
+        </div>
+      )}
     </nav>
   );
 };
