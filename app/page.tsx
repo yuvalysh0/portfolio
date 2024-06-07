@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Hero from './components/Hero';
 import Experience from './components/Experience';
 import Footer from './components/layout/Footer';
+import Contact from './components/Contact';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <Hero />
         <AboutMe />
         <Experience />
+        <Contact />
         <Footer />
       </section>
       <section className="fixed right-0 top-0 h-full flex items-center justify-center bg-primary w-5/12">
