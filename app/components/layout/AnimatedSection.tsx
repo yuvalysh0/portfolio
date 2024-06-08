@@ -25,7 +25,7 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
         }
       },
       {
-        threshold: 0.1, // Adjust this threshold as needed
+        threshold: 0.1,
       }
     );
 

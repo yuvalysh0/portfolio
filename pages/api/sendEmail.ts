@@ -33,9 +33,9 @@ export default async function handler(
 
   try {
     await transporter.sendMail({
-      from: process.env.EMAIL_USER, // Your email address
-      to: process.env.EMAIL_USER, // Your email address to receive messages
-      replyTo: email, // User's email address
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_USER,
+      replyTo: email,
       subject: `You got a message from your website from ${name}`,
       html: `
         <p><strong>Name:</strong> ${name}</p>
