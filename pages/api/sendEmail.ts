@@ -1,33 +1,41 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-const nodemailer = require('nodemailer');
+import type { NextApiRequest, NextApiResponse } from "next";
+import nodemailer from "nodemailer";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse,
+  res: NextApiResponse
 ) {
   const { name, email, message } = req.body;
 
   if (!name || !email || !message) {
-    return res.status(400).json({ message: 'All fields are required' });
+    return res.status(400).json({ message: "All fields are required" });
   }
 
-  console.log(process.env.GMAIL_USER, process.env.GMAIL_APP_PASSWORD);
+  console.log(
+    process.env.EMAIL_USER,
+    process.env.EMAIL_PASS,
+    process.env.EMAIL_HOST,
+    process.env.EMAIL_PORT
+  );
+
+  console.log(req.body);
 
   const transporter = nodemailer.createTransport({
-    service: 'Gmail',
-    host: 'smtp.gmail.com',
-    secure: false,
+    host: process.env.EMAIL_HOST,
+    port: parseInt(process.env.EMAIL_PORT, 10),
+    secure: process.env.EMAIL_PORT === "465", // true for 465, false for other ports
     auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_APP_PASSWORD,
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
     },
   });
 
   try {
     await transporter.sendMail({
-      from: email,
-      to: process.env.GMAIL_USER,
-      subject: `You Got a message from your website from ${name}`,
+      from: process.env.EMAIL_USER, // Your email address
+      to: process.env.EMAIL_USER, // Your email address to receive messages
+      replyTo: email, // User's email address
+      subject: `You got a message from your website from ${name}`,
       html: `
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
@@ -36,9 +44,9 @@ export default async function handler(
       `,
     });
 
-    res.status(200).json({ message: 'Email sent successfully' });
+    res.status(200).json({ message: "Email sent successfully" });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Error sending email' });
+    res.status(500).json({ message: "Error sending email" });
   }
 }
