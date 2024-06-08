@@ -1,16 +1,15 @@
-import React from 'react';
-import { playfair } from '../utils/fonts';
-import { projects } from '../utils/projects';
+import React from "react";
+import { playfair } from "../utils/fonts";
+import { projects } from "../utils/projects";
+import AnimatedSection from "./layout/AnimatedSection";
 
 const Projects = () => {
   return (
-    <div
+    <AnimatedSection
       className="flex flex-col justify-center min-h-[70vh] md:min-h-screen p-10 md:pe-56"
-      id="projects"
-    >
+      id="projects">
       <h1
-        className={`text-4xl md:text-6xl font-bold mb-4 ${playfair.className}`}
-      >
+        className={`text-4xl md:text-6xl font-bold mb-4 ${playfair.className}`}>
         Key Projects.
       </h1>
       {projects.map((project) => (
@@ -28,7 +27,7 @@ const Projects = () => {
           </div>
         </div>
       ))}
-    </div>
+    </AnimatedSection>
   );
 };
 

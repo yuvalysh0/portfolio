@@ -1,16 +1,15 @@
-import React from 'react';
-import { playfair } from '../utils/fonts';
-import ContactForm from './ContactForm';
+import React from "react";
+import { playfair } from "../utils/fonts";
+import ContactForm from "./ContactForm";
+import AnimatedSection from "./layout/AnimatedSection";
 
 const Contact = () => {
   return (
-    <div
+    <AnimatedSection
       className="flex flex-col justify-center min-h-[70vh] md:min-h-screen p-10"
-      id="contact"
-    >
+      id="contact">
       <h1
-        className={`text-5xl md:text-6xl font-bold mb-4 ${playfair.className}`}
-      >
+        className={`text-5xl md:text-6xl font-bold mb-4 ${playfair.className}`}>
         Keep in touch.
       </h1>
       <p className="text-lg md:text-xl font-light mb-8">
@@ -18,7 +17,7 @@ const Contact = () => {
         to me.
       </p>
       <ContactForm />
-    </div>
+    </AnimatedSection>
   );
 };
 

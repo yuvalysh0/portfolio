@@ -4,12 +4,13 @@ import { playfair } from "../utils/fonts";
 import { techStack } from "../utils/techStack";
 import TechIcon from "./TechIcon";
 import { IconName } from "@fortawesome/fontawesome-svg-core";
+import AnimatedSection from "./layout/AnimatedSection";
 
 const AboutMe = () => {
   const iconStyle =
     "transform hover:scale-110 transition-transform w-10 h-10 hover:text-primary";
   return (
-    <div
+    <AnimatedSection
       className="flex flex-col justify-center min-h-[70vh] md:min-h-screen p-10 md:pe-56"
       id="about">
       <h1
@@ -33,7 +34,7 @@ const AboutMe = () => {
           />
         ))}
       </div>
-    </div>
+    </AnimatedSection>
   );
 };
 
