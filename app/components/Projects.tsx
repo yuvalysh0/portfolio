@@ -6,7 +6,7 @@ import AnimatedSection from "./layout/AnimatedSection";
 const Projects = () => {
   return (
     <AnimatedSection
-      className="flex flex-col justify-center min-h-[70vh] md:min-h-screen p-10 md:pe-56"
+      className="flex flex-col justify-center min-h-[70vh] lg:min-h-[80vh] p-10 md:pe-56"
       id="projects">
       <h1
         className={`text-4xl md:text-6xl font-bold mb-4 ${playfair.className}`}>

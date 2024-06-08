@@ -11,7 +11,7 @@ const AboutMe = () => {
     "transform hover:scale-110 transition-transform w-10 h-10 hover:text-primary";
   return (
     <AnimatedSection
-      className="flex flex-col justify-center min-h-[70vh] md:min-h-screen p-10 md:pe-56"
+      className="flex flex-col justify-center min-h-[70vh] lg:min-h-[80vh] p-10 md:pe-56"
       id="about">
       <h1
         className={`text-4xl md:text-6xl font-bold mb-2 ${playfair.className}`}>

@@ -7,7 +7,7 @@ import AnimatedSection from "./layout/AnimatedSection";
 const Experience = () => {
   return (
     <AnimatedSection
-      className="flex flex-col justify-center min-h-[70vh] md:min-h-screen p-10 mt-24"
+      className="flex flex-col justify-center min-h-[70vh] lg:min-h-[80vh] p-10 mb-24"
       id="experience">
       <h1
         className={`text-5xl md:text-6xl font-bold mb-8 md:mb-12 ${playfair.className}`}>
