@@ -9,7 +9,7 @@ import { socialItems } from "@/app/utils/socialItems";
 
 const ImageSection = () => {
   const iconsStyle =
-    "text-white text-xl md:text-2xl lg:text-3xl transform transition-transform duration-300 md:hover:scale-125 md:hover:rotate-12 md:hover:-translate-x-2";
+    "text-white text-2xl lg:text-3xl transform transition-transform duration-300 md:hover:scale-125 md:hover:rotate-12 md:hover:-translate-x-2";
 
   return (
     <section className="relative w-screen h-[50vh] flex flex-col md:flex-row md:fixed md:right-0 md:top-0 md:h-full items-center justify-center bg-primary md:w-5/12">

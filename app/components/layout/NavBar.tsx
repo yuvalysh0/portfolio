@@ -1,21 +1,21 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import React, { useState } from 'react';
-import { playfair } from '../../utils/fonts';
-import { Link as ScrollLink } from 'react-scroll';
-import { CgMenuRight, CgClose } from 'react-icons/cg';
+import Link from "next/link";
+import React, { useState } from "react";
+import { playfair } from "../../utils/fonts";
+import { Link as ScrollLink } from "react-scroll";
+import { CgMenuRight, CgClose } from "react-icons/cg";
 
 const links = [
-  { href: 'home', label: 'Home' },
-  { href: 'about', label: 'About' },
-  { href: 'experience', label: 'Experience' },
-  { href: 'projects', label: 'Projects' },
-  { href: 'contact', label: 'Contact' },
+  { href: "home", label: "Home" },
+  { href: "about", label: "About" },
+  { href: "experience", label: "Experience" },
+  { href: "projects", label: "Projects" },
+  { href: "contact", label: "Contact" },
 ];
 
 const NavBar = () => {
-  const [isSelected, setIsSelected] = useState('Home');
+  const [isSelected, setIsSelected] = useState("Home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
@@ -35,24 +35,27 @@ const NavBar = () => {
             spy={true}
             offset={-70}
             className={`text-gray-500 hover:text-gray-600 cursor-pointer ${
-              label === isSelected ? 'text-primary font-bold' : ''
+              label === isSelected && "text-primary font-bold"
             }`}
-            onSetActive={() => setIsSelected(label)}
-          >
+            onSetActive={() => setIsSelected(label)}>
             {label}
           </ScrollLink>
         ))}
       </div>
-      <div className="md:hidden">
-        <CgMenuRight className="text-2xl cursor-pointer" onClick={toggleMenu} />
+      <div className="md:hidden z-50">
+        {isMenuOpen ? (
+          <CgClose className="text-2xl cursor-pointer" onClick={toggleMenu} />
+        ) : (
+          <CgMenuRight
+            className="text-2xl cursor-pointer"
+            onClick={toggleMenu}
+          />
+        )}
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 bg-base-100 flex flex-col gap-6 items-center justify-center z-50">
-          <CgClose
-            className="text-2xl cursor-pointer absolute top-4 right-6"
-            onClick={toggleMenu}
-          />
+        <div
+          className={`md:hidden fixed inset-0 bg-base-100 flex flex-col gap-6 items-center justify-center z-40 ${playfair.className}`}>
           {links.map(({ href, label }) => (
             <ScrollLink
               key={label}
@@ -61,10 +64,13 @@ const NavBar = () => {
               duration={500}
               spy={true}
               offset={-70}
-              className="text-gray-500 hover:text-gray-600 cursor-pointer text-2xl"
+              className={`text-5xl ${
+                label === isSelected
+                  ? "font-bold text-primary"
+                  : "text-primary-content"
+              }`}
               onSetActive={() => setIsSelected(label)}
-              onClick={toggleMenu}
-            >
+              onClick={toggleMenu}>
               {label}
             </ScrollLink>
           ))}
