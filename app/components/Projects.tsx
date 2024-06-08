@@ -13,14 +13,16 @@ const Projects = () => {
         Key Projects.
       </h1>
       {projects.map((project) => (
-        <div className="flex flex-col mb-6">
+        <div className="flex flex-col mb-6" key={project.title}>
           <h2 className="text-xl md:text-2xl font-semibold">{project.title}</h2>
           <p className="text-md md:text-lg font-light mb-2">
             {project.description}
           </p>
           <div className="flex flex-wrap gap-2">
             {project.tags.map((tag) => (
-              <span className="text-sm md:text-base bg-primary text-white px-2 py-1 rounded-md">
+              <span
+                key={tag}
+                className="text-sm md:text-base bg-primary text-white px-2 py-1 rounded-md">
                 {tag}
               </span>
             ))}

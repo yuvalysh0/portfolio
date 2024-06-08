@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { playfair } from "../../utils/fonts";
 import { Link as ScrollLink } from "react-scroll";
 import { CgMenuRight, CgClose } from "react-icons/cg";
+import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
   { href: "home", label: "Home" },
@@ -43,18 +44,41 @@ const NavBar = () => {
         ))}
       </div>
       <div className="md:hidden z-50">
-        {isMenuOpen ? (
-          <CgClose className="text-2xl cursor-pointer" onClick={toggleMenu} />
-        ) : (
-          <CgMenuRight
-            className="text-2xl cursor-pointer"
-            onClick={toggleMenu}
-          />
-        )}
+        <AnimatePresence mode="wait">
+          {isMenuOpen ? (
+            <motion.div
+              key="close"
+              initial={{ opacity: 0, rotate: -90 }}
+              animate={{ opacity: 1, rotate: 0 }}
+              exit={{ opacity: 0, rotate: 90 }}
+              transition={{ duration: 0.2 }}>
+              <CgClose
+                className="text-2xl cursor-pointer"
+                onClick={toggleMenu}
+              />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="menu"
+              initial={{ opacity: 0, rotate: 90 }}
+              animate={{ opacity: 1, rotate: 0 }}
+              exit={{ opacity: 0, rotate: -90 }}
+              transition={{ duration: 0.2 }}>
+              <CgMenuRight
+                className="text-2xl cursor-pointer"
+                onClick={toggleMenu}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {isMenuOpen && (
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.2 }}
           className={`md:hidden fixed inset-0 bg-base-100 flex flex-col gap-6 items-center justify-center z-40 ${playfair.className}`}>
           {links.map(({ href, label }) => (
             <ScrollLink
@@ -74,7 +98,7 @@ const NavBar = () => {
               {label}
             </ScrollLink>
           ))}
-        </div>
+        </motion.div>
       )}
     </nav>
   );

@@ -22,7 +22,7 @@ const AboutMe = () => {
       </p>
 
       <h2 className={`text-lg md:text-xl font-medium mb-2`}>
-        Technologies I've worked with:
+        {`Technologies I've worked with:`}
       </h2>
       <div className="grid grid-cols-4 md:flex md:flex-wrap gap-4">
         {techStack.map(({ name, iconName }) => (
