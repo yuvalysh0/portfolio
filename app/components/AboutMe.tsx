@@ -1,20 +1,24 @@
-import React from "react";
-import { aboutMe } from "../utils/aboutMe";
-import { playfair } from "../utils/fonts";
-import { techStack } from "../utils/techStack";
-import TechIcon from "./TechIcon";
-import { IconName } from "@fortawesome/fontawesome-svg-core";
-import AnimatedSection from "./layout/AnimatedSection";
+import React from 'react';
+import { aboutMe } from '../utils/aboutMe';
+import { playfair } from '../utils/fonts';
+import { techStack } from '../utils/techStack';
+import TechIcon from './TechIcon';
+import { IconName } from '@fortawesome/fontawesome-svg-core';
+import AnimatedSection from './layout/AnimatedSection';
+import { FaChevronDown } from 'react-icons/fa';
+import Link from 'next/link';
 
 const AboutMe = () => {
   const iconStyle =
-    "transform hover:scale-110 transition-transform w-10 h-10 hover:text-primary";
+    'transform hover:scale-110 transition-transform w-10 h-10 hover:text-primary';
   return (
     <AnimatedSection
       className="flex flex-col justify-center min-h-[70vh] lg:min-h-[80vh] p-10 md:pe-56"
-      id="about">
+      id="about"
+    >
       <h1
-        className={`text-4xl md:text-6xl font-bold mb-2 ${playfair.className}`}>
+        className={`text-4xl md:text-6xl font-bold mb-2 ${playfair.className}`}
+      >
         About Me.
       </h1>
       <p className="text-lg md:text-xl font-light mb-4">
@@ -34,6 +38,14 @@ const AboutMe = () => {
           />
         ))}
       </div>
+      <Link
+        href="https://drive.google.com/file/d/19-U2ZqSrpj579Nz99HMHuPUlbGYf7_Ke/view?usp=sharing"
+        target="_blank"
+        className="btn md:btn-wide btn-primary text-primary-content font-normal mx-auto mt-8 md:mt-14"
+      >
+        Download CV
+        <FaChevronDown />
+      </Link>
     </AnimatedSection>
   );
 };
