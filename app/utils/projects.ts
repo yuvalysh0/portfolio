@@ -4,6 +4,7 @@ export const projects = [
     description:
       'Built a personal portfolio website using Next.js, Tailwind CSS, and TypeScript. Implemented SEO optimization and a responsive design',
     tags: ['Next.js', 'Tailwind CSS', 'TypeScript'],
+    githubUrl: 'https://github.com/yuvalysh0/portfolio',
   },
 
   {
@@ -35,5 +36,6 @@ export const projects = [
     description:
       'Developed a social app with CSS, Vue.js, Vuex, and Firebase. Created functionalities for posting, liking, commenting, and real-time updates to deliver a seamless social media experience',
     tags: ['Vue.js', 'Vuex', 'Firebase'],
+    youtubeUrl: 'https://www.youtube.com/watch?v=burhfu39e-U&feature=youtu.be',
   },
 ];
