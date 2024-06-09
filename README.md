@@ -6,12 +6,8 @@
 
 - [Description](#description)
 - [Features](#features)
-- [Screenshots](#screenshots)
 - [Technologies](#technologies)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 - [Contact](#contact)
 
 ## Description
