@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import React, { useState } from "react";
-import { playfair } from "../../utils/fonts";
+import { playfair } from "../../../utils/fonts";
 import { Link as ScrollLink } from "react-scroll";
 import { CgMenuRight, CgClose } from "react-icons/cg";
 import { motion, AnimatePresence } from "framer-motion";

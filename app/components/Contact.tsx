@@ -1,5 +1,5 @@
 import React from "react";
-import { playfair } from "../utils/fonts";
+import { playfair } from "../../utils/fonts";
 import ContactForm from "./ContactForm";
 import AnimatedSection from "./layout/AnimatedSection";
 

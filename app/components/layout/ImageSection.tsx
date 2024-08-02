@@ -1,16 +1,16 @@
-'use client';
-import Image from 'next/image';
-import React from 'react';
-import profilePic from '../../assets/images/profile-picture.jpg';
-import { SocialIcon } from '../SocialIcon';
-import { Toaster, toast } from 'react-hot-toast';
-import { IconName } from '@fortawesome/fontawesome-svg-core';
-import { socialItems } from '@/app/utils/socialItems';
-import AnimatedSection from './AnimatedSection';
+"use client";
+import Image from "next/image";
+import React from "react";
+import profilePic from "../../assets/images/profile-picture.jpg";
+import { SocialIcon } from "../SocialIcon";
+import { Toaster, toast } from "react-hot-toast";
+import { IconName } from "@fortawesome/fontawesome-svg-core";
+import { socialItems } from "@/utils/socialItems";
+import AnimatedSection from "./AnimatedSection";
 
 const ImageSection = () => {
   const iconsStyle =
-    'text-white text-4xl md:text-3xl transform transition-transform duration-300 md:hover:scale-125 md:hover:rotate-12 md:hover:-translate-x-2';
+    "text-white text-4xl md:text-3xl transform transition-transform duration-300 md:hover:scale-125 md:hover:rotate-12 md:hover:-translate-x-2";
 
   return (
     <section className="relative w-screen h-[50vh] flex flex-col md:flex-row md:fixed md:right-0 md:top-0 md:h-full items-center justify-center bg-primary md:w-5/12">
@@ -28,12 +28,12 @@ const ImageSection = () => {
         <Image
           onClick={() =>
             toast(`I Know I'm cute but don't push me`, {
-              icon: '🤪',
+              icon: "🤪",
               duration: 2500,
               style: {
-                border: '1px solid #65C3C7',
-                padding: '12px',
-                color: '#65C3C7',
+                border: "1px solid #65C3C7",
+                padding: "12px",
+                color: "#65C3C7",
               },
             })
           }

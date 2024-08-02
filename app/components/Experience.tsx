@@ -1,6 +1,6 @@
 import React from "react";
-import { playfair } from "../utils/fonts";
-import { experience } from "../utils/experience";
+import { playfair } from "../../utils/fonts";
+import { experience } from "../../utils/experience";
 import { BsCheckCircleFill } from "react-icons/bs";
 import AnimatedSection from "./layout/AnimatedSection";
 
