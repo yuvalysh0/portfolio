@@ -15,17 +15,7 @@ const Projects = () => {
       </h1>
       {projects.map((project) => (
         <div className="flex flex-col mb-6" key={project.title}>
-          {project.url ? (
-            <Link
-              href={project.url}
-              className="group text-xl md:text-2xl font-semibold hover:text-primary transition-all duration-200">
-              {project.title} - Click To View More
-            </Link>
-          ) : (
-            <h2 className="text-xl md:text-2xl font-semibold">
-              {project.title}
-            </h2>
-          )}
+          <h2 className="text-xl md:text-2xl font-semibold">{project.title}</h2>
           <p className="text-md md:text-lg font-light mb-2">
             {project.description}
           </p>
@@ -55,6 +45,11 @@ const Projects = () => {
                 rel="noopener noreferrer"
                 className="btn btn-outline btn-sm">
                 Demo
+              </Link>
+            )}
+            {project.url && (
+              <Link href={project.url} className="btn btn-outline btn-sm">
+                View More
               </Link>
             )}
           </div>

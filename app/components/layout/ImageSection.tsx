@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import profilePic from "../../assets/images/profile-picture.jpg";
 import { SocialIcon } from "../SocialIcon";
 import { Toaster, toast } from "react-hot-toast";
 import { IconName } from "@fortawesome/fontawesome-svg-core";
@@ -38,8 +37,10 @@ const ImageSection = () => {
             })
           }
           className="md:sticky object-cover rounded-full overflow-hidden w-[65%] aspect-square md:w-56 lg:w-80 drop-shadow-2xl shadow-slate-400 md:hover:border-2 md:hover:border-sky-700 md:transition-all md:duration-200 md:hover:scale-105 z-10"
-          src={profilePic}
+          src="/assets/images/profile-picture.jpg"
           alt="Profile Picture"
+          width={800}
+          height={800}
         />
       </AnimatedSection>
 

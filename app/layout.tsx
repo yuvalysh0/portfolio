@@ -3,6 +3,7 @@ import "./globals.css";
 import { poppins } from "../utils/fonts";
 import NavBar from "./components/layout/NavBar";
 import ImageSection from "./components/layout/ImageSection";
+import LayoutWrapper from "./components/layout/LayoutWrapper";
 
 export const metadata: Metadata = {
   title: "Yuval Shalom's Portfolio",
@@ -19,8 +20,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <main className="fle flex-col md:flex-row relative">
           <section className="md:w-7/12 flex flex-col">
-            <ImageSection />
-            {children}
+            <LayoutWrapper>{children}</LayoutWrapper>
           </section>
         </main>
       </body>
