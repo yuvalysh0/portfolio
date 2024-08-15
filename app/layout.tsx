@@ -22,7 +22,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
         <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
+        <meta name="description" content={metadata.description || ""} />
       </head>
       <body className={poppins.className}>
         <main className="fle flex-col md:flex-row relative">
