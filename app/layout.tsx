@@ -20,11 +20,11 @@ export default function RootLayout({
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        <title>"Yuval Shalom's Portfolio"</title>
+        <title>Yuval Shalom's Portfolio</title>
         <meta name="description" content={metadata.description || ""} />
       </Head>
       <body className={poppins.className}>
-        <main className="fle flex-col md:flex-row relative">
+        <main className="flex flex-col md:flex-row relative">
           <section className="md:w-7/12 flex flex-col">
             <LayoutWrapper>{children}</LayoutWrapper>
           </section>
