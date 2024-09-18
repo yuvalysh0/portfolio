@@ -4,9 +4,15 @@ export const projects = [
     title: "Ligat Haal X, Interactive Grid Game",
     description:
       "Developed a dynamic web app displaying an interactive grid of football team logos, with a player search functionality using Next.js and TailwindCSS. Integrated Prisma ORM with Azure SQL Server for database management and deployed on Vercel. Implemented server-side rendering, API routes, and cron jobs for weekly data cache updates",
-    tags: ["Next.js", "TailwindCSS", "Prisma", "Azure SQL Server", "Vercel"],
-    youtubeUrl: "",
+    tags: [
+      "Next.js",
+      "TailwindCSS",
+      "Azure Functions",
+      "Azure SQL Server",
+      "Vercel",
+    ],
     url: "/projects/1",
+    youtubeUrl: "https://www.ligathaalx.com/",
     projectPage: {
       title: "Ligat Haal X, Interactive Grid",
       description:

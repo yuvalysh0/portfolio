@@ -1,34 +1,40 @@
+import { iconName } from "@fortawesome/free-brands-svg-icons/fa42Group";
+
 export const techStack = [
   {
-    iconName: 'html5',
-    name: 'HTML',
+    iconName: "html5",
+    name: "HTML",
   },
   {
-    iconName: 'css3-alt',
-    name: 'CSS',
+    iconName: "css3-alt",
+    name: "CSS",
   },
   {
-    iconName: 'js-square',
-    name: 'Javascript',
+    iconName: "js-square",
+    name: "Javascript",
   },
   {
-    iconName: 'react',
-    name: 'React',
+    iconName: "angular",
+    name: "Angular",
   },
   {
-    iconName: 'vuejs',
-    name: 'Vuejs',
+    iconName: "react",
+    name: "React",
   },
   {
-    iconName: 'node-js',
-    name: 'Nodejs',
+    iconName: "vuejs",
+    name: "Vuejs",
   },
   {
-    iconName: 'unity',
-    name: 'Unity',
+    iconName: "node-js",
+    name: "Nodejs",
   },
   {
-    iconName: 'git-alt',
-    name: 'Git',
+    iconName: "unity",
+    name: "Unity",
+  },
+  {
+    iconName: "git-alt",
+    name: "Git",
   },
 ];
