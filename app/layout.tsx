@@ -4,11 +4,6 @@ import { poppins } from "../utils/fonts";
 import LayoutWrapper from "./components/layout/LayoutWrapper";
 import Head from "next/head";
 
-export const metadata: Metadata = {
-  title: "Yuval Shalom's Portfolio",
-  description: "Welcome to my portfolio",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -21,7 +16,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
         <title>Yuval Shalom's Portfolio</title>
-        <meta name="description" content={metadata.description || ""} />
+        <meta name="description" content="Welcome to my portfolio" />
       </Head>
       <body className={poppins.className}>
         <main className="flex flex-col md:flex-row relative">
