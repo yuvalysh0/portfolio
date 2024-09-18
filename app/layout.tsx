@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import "./globals.css";
 import { poppins } from "../utils/fonts";
 import LayoutWrapper from "./components/layout/LayoutWrapper";
@@ -15,7 +14,8 @@ export default function RootLayout({
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        <title>Yuval Shalom's Portfolio</title>
+        <title>Yuval Shalom&apos;s Portfolio</title>{" "}
+        {/* Escaped the single quote */}
         <meta name="description" content="Welcome to my portfolio" />
       </Head>
       <body className={poppins.className}>
