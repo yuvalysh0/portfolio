@@ -90,13 +90,6 @@ export const projects = [
   },
   {
     id: 6,
-    title: "Flash-Media Scheduler",
-    description:
-      "Built the foundation and design using CSS, Vue.js, and Quasar Framework. Implemented Vuex for state management and Firebase for real-time data synchronization.",
-    tags: ["Vue.js", "Quasar", "Firebase"],
-  },
-  {
-    id: 7,
     title: "FriendsBook",
     description:
       "Developed a social app with CSS, Vue.js, Vuex, and Firebase. Created functionalities for posting, liking, commenting, and real-time updates to deliver a seamless social media experience",

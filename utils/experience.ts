@@ -9,6 +9,15 @@ export const experience = [
     ],
   },
   {
+    date: "January 2024 – March 2024",
+    company: "Reserve Duty (IDF)",
+    position: "Full Stack Developer",
+    description: [
+      "Developed a sophisticated web-based intelligence analysis platform.",
+      "Implemented dynamic user interfaces with React.",
+    ],
+  },
+  {
     date: "August 2023 – June 2024",
     company: "Startup Booster",
     position: "Full Stack Developer",
@@ -17,15 +26,7 @@ export const experience = [
       "Improved user accessibility and experience on the Hadassah Hospital web platform through responsive design and the implementation of dynamic accessibility features.",
     ],
   },
-  {
-    date: "2024",
-    company: "Reserve Duty (IDF)",
-    position: "Full Stack Developer",
-    description: [
-      "Developed a sophisticated web-based intelligence analysis platform.",
-      "Implemented dynamic user interfaces with React.",
-    ],
-  },
+
   {
     date: "December 2021 – July 2023",
     company: "IronSource (Unity)",
