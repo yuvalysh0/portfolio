@@ -1,5 +1,3 @@
 export const aboutMe = {
-  description: `With 3 years of experience in web development, I turn caffeine into code, and bugs into features! When I'm not obsessing over pixels, I'm out on the field playing football as a striker in F.C. Ashdod.
-  \nWho knew balancing JavaScript and a football could be so much fun?
-    My life revolves around clean code and scoring goals.\n Whether it's fixing a tricky bug or maneuvering past defenders, I bring my A-game to both the screen and the field.`,
+  description: `Frontend developer with 4 years of experience. I'm passionate about creating intuitive user experiences and writing maintainable code.\n\nWhen I'm not debugging Angular components, you'll find me playing striker for F.C. Ashdod. I believe good software should feel effortless to use, even when the complexity underneath isn't.`,
 };
