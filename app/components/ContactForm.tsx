@@ -55,10 +55,9 @@ const ContactForm = () => {
   return (
     <>
       <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
-        <label className="input input-bordered flex items-center gap-2 w-full">
+        <label className="input input-primary input-bordered flex items-center gap-2 w-full">
           <input
             type="text"
-            className="grow input-primary"
             placeholder="Full Name"
             id="name"
             {...register("name", { required: "Name is required" })}
@@ -69,10 +68,9 @@ const ContactForm = () => {
           <span className="text-red-500 text-sm">{errors.name.message}</span>
         )}
 
-        <label className="input input-bordered flex items-center gap-2 w-full">
+        <label className="input input-primary input-bordered flex items-center gap-2 w-full">
           <input
             type="email"
-            className="grow input-primary"
             placeholder="Email"
             id="email"
             {...register("email", {

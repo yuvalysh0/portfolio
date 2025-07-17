@@ -6,8 +6,6 @@ export const experience = [
     description: [
       "Architect and develop real-time sports data visualization dashboards using Angular 17+, Nx monorepo, and Chart.js for processing millions of live events.",
       "Drive cross-functional collaboration with product and backend teams to deliver data-driven features that enhance user decision-making capabilities.",
-      "Engineer scalable, reusable UI component library with Angular signals for efficient state management and optimal rendering performance.",
-      "Optimize REST APIs and implement complex real-time data processing logic, improving dashboard load times and responsiveness.",
     ],
   },
   {
