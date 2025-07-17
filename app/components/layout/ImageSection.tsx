@@ -13,7 +13,7 @@ const ImageSection = () => {
 
   return (
     <section className="relative w-screen h-[50vh] flex flex-col md:flex-row md:fixed md:right-0 md:top-0 md:h-full items-center justify-center bg-primary md:w-5/12">
-      <AnimatedSection className="flex md:flex-col gap-4 mb-8 md:mb-0 md:fixed md:right-0 transform md:-translate-y-1/2 md:pr-4 xl:pr-8 2xl:pr-12">
+      <AnimatedSection className="flex md:flex-col gap-4 mb-8 md:mb-0 md:absolute md:right-4 xl:right-8 2xl:right-12 md:top-1/2 md:-translate-y-1/2">
         {socialItems.map(({ link, icon }) => (
           <SocialIcon
             key={link}
@@ -30,13 +30,14 @@ const ImageSection = () => {
               icon: "🤪",
               duration: 2500,
               style: {
-                border: "1px solid #65C3C7",
+                zIndex: 1000,
+                border: "1px solid #7462EE",
                 padding: "12px",
-                color: "#65C3C7",
+                color: "#7462EE",
               },
             })
           }
-          className="md:sticky object-cover rounded-full overflow-hidden w-[65%] aspect-square md:w-56 lg:w-80 drop-shadow-2xl shadow-slate-400 md:hover:border-2 md:hover:border-sky-700 md:transition-all md:duration-200 md:hover:scale-105 z-10"
+          className="md:sticky object-cover rounded-full overflow-hidden w-[65%] aspect-square md:w-56 lg:w-80 drop-shadow-2xl shadow-slate-400 md:hover:border-2 md:hover:border-[#7462EE] md:transition-all md:duration-200 md:hover:scale-105 z-10"
           src="/assets/images/profile-picture.jpg"
           alt="Profile Picture"
           width={800}

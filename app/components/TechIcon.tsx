@@ -16,7 +16,7 @@ const TechIcon = ({ iconName, name, style }: ITechIcon) => (
       icon={["fab", `${iconName}`]}
       className={`text-3xl ${style}`}
     />
-    <span className="absolute top-full mt-2 px-2 py-1 text-xs text-primary-content bg-primary rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
+    <span className="absolute top-full mt-2 px-2 py-1 text-xs text-primary-content bg-primary rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
       {name}
     </span>
   </div>
