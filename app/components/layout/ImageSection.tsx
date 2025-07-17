@@ -31,13 +31,13 @@ const ImageSection = () => {
               duration: 2500,
               style: {
                 zIndex: 1000,
-                border: "1px solid #7462EE",
+                border: "1px solid #A45C5D",
                 padding: "12px",
-                color: "#7462EE",
+                color: "#A45C5D",
               },
             })
           }
-          className="md:sticky object-cover rounded-full overflow-hidden w-[65%] aspect-square md:w-56 lg:w-80 drop-shadow-2xl shadow-slate-400 md:hover:border-2 md:hover:border-[#7462EE] md:transition-all md:duration-200 md:hover:scale-105 z-10"
+          className="md:sticky object-cover rounded-full overflow-hidden w-[65%] aspect-square md:w-56 lg:w-80 drop-shadow-2xl shadow-slate-400 md:hover:border-2 md:hover:border-[#A45C5D] md:transition-all md:duration-200 md:hover:scale-105 z-10"
           src="/assets/images/profile-picture.jpg"
           alt="Profile Picture"
           width={800}
