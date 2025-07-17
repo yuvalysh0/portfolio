@@ -1,7 +1,65 @@
 import "./globals.css";
 import { poppins } from "../utils/fonts";
 import LayoutWrapper from "./components/layout/LayoutWrapper";
-import Head from "next/head";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: {
+    default: "Yuval Shalom - Frontend Developer",
+    template: "%s | Yuval Shalom",
+  },
+  description:
+    "Frontend Developer with 4 years of experience building sports data dashboards, payment systems, and web applications. Specialized in Angular, React, and modern web technologies.",
+  keywords: [
+    "Frontend Developer",
+    "Angular Developer",
+    "React Developer",
+    "TypeScript",
+    "JavaScript",
+    "Web Development",
+    "Sports Data Visualization",
+  ],
+  authors: [{ name: "Yuval Shalom" }],
+  creator: "Yuval Shalom",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://yuvalshalom.com",
+    title: "Yuval Shalom - Frontend Developer",
+    description:
+      "Frontend Developer specializing in Angular, React, and sports data visualization. Building high-performance web applications with modern technologies.",
+    siteName: "Yuval Shalom Portfolio",
+    images: [
+      {
+        url: "/assets/images/profile-picture.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Yuval Shalom - Frontend Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Yuval Shalom - Frontend Developer",
+    description:
+      "Frontend Developer specializing in Angular, React, and sports data visualization.",
+    images: ["/assets/images/profile-picture.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+  },
+};
 
 export default function RootLayout({
   children,
@@ -9,15 +67,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html>
-      <Head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        <title>Yuval Shalom&apos;s Portfolio</title>{" "}
-        {/* Escaped the single quote */}
-        <meta name="description" content="Welcome to my portfolio" />
-      </Head>
+    <html lang="en">
       <body className={poppins.className}>
         <main className="flex flex-col md:flex-row relative">
           <section className="md:w-7/12 flex flex-col">
