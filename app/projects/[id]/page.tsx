@@ -72,7 +72,7 @@ const ProjectPage = async ({ params }: Props) => {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">
+          <h1 className="text-2xl font-bold mb-4 ">
             Project Page Not Available
           </h1>
           <p className="text-base-content/70 mb-6">

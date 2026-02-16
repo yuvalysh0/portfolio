@@ -3,9 +3,6 @@ import React, { useState } from "react";
 import { playfair } from "@/utils/fonts";
 import Link from "next/link";
 import Image from "next/image";
-import AnimatedSection from "@/app/components/layout/AnimatedSection";
-import StaggerContainer from "@/app/components/layout/StaggerContainer";
-import StaggerItem from "@/app/components/layout/StaggerItem";
 import ImageModal from "@/app/components/ImageModal";
 import { motion } from "framer-motion";
 
@@ -16,13 +13,15 @@ interface ProjectSectionProps {
 
 const ProjectSection: React.FC<ProjectSectionProps> = ({ title, children }) => (
   <motion.section 
-    className="mb-8"
+    className="mb-12"
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: "-100px" }}
     transition={{ duration: 0.6 }}
   >
-    <h2 className="text-2xl font-semibold mb-4">{title}</h2>
+    <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+      {title}
+    </h2>
     {children}
   </motion.section>
 );
@@ -31,26 +30,59 @@ interface ProjectImageProps {
   src: string;
   alt: string;
   onClick: () => void;
+  index: number;
 }
 
-const ProjectImage: React.FC<ProjectImageProps> = ({ src, alt, onClick }) => (
+const ProjectImage: React.FC<ProjectImageProps> = ({ src, alt, onClick, index }) => (
   <motion.div
-    className="flex items-center justify-center w-full cursor-pointer mb-8 overflow-hidden rounded-lg"
+    className="relative w-full cursor-pointer mb-8 overflow-hidden rounded-2xl group"
     onClick={onClick}
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.98 }}
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: "-100px" }}
-    transition={{ duration: 0.6 }}
+    transition={{ duration: 0.6, delay: index * 0.1 }}
   >
-    <Image
-      src={src}
-      alt={alt}
-      width={600}
-      height={600}
-      className="rounded-lg"
-    />
+    {/* Gradient border effect */}
+    <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-accent opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-2xl" />
+    
+    <motion.div
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        width={800}
+        height={600}
+        className="rounded-2xl shadow-lg group-hover:shadow-2xl transition-shadow duration-300"
+        priority={index === 0}
+      />
+    </motion.div>
+
+    {/* Click to expand hint */}
+    <motion.div
+      className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
+      initial={{ opacity: 0 }}
+    >
+      <div className="text-white text-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-12 w-12 mx-auto mb-2"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+          />
+        </svg>
+        <p className="text-sm font-medium">Click to expand</p>
+      </div>
+    </motion.div>
   </motion.div>
 );
 
@@ -75,89 +107,126 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({ project }) => {
   const handleClose = () => setIsImageModalOpen(false);
 
   return (
-    <>
+    <div className="min-h-screen bg-base-100">
+      {/* Animated Navigation */}
       <motion.nav 
-        className="sticky navbar top-0 w-screen md:w-full flex justify-between items-center py-4 px-8 bg-base-100 z-50"
+        className="sticky top-0 w-full backdrop-blur-lg bg-base-100/80 border-b border-base-300 z-50 shadow-sm"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
       >
-        <Link href="/" className={playfair.className}>
-          Y.Shalom;
-        </Link>
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <Link href="/" className="btn btn-outline btn-sm">
-            Go back to Home
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <Link href="/" className={`text-2xl font-bold ${playfair.className}`}>
+            <motion.span
+              className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              Y.Shalom;
+            </motion.span>
           </Link>
-        </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Link 
+              href="/" 
+              className="btn btn-outline btn-sm gap-2 hover:btn-primary"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                />
+              </svg>
+              Back to Home
+            </Link>
+          </motion.div>
+        </div>
       </motion.nav>
       
-      <AnimatedSection
-        className="flex flex-col justify-center items-center min-h-[70vh] lg:min-h-[80vh] p-12"
-        id="projects"
-        variant="fadeUp"
-      >
-        <div className="max-w-4xl">
+      {/* Main Content */}
+      <div className="max-w-5xl mx-auto px-6 py-16">
+        {/* Project Header */}
+        <motion.div
+          className="mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           <motion.h1 
-            className="text-4xl font-bold mb-4"
+            className={`text-5xl md:text-6xl font-bold mb-6 ${playfair.className}`}
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
             {project.title}
           </motion.h1>
           
           <motion.p 
-            className="text-lg mb-8"
+            className="text-xl md:text-2xl text-base-content/70 leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
           >
             {project.description}
           </motion.p>
+        </motion.div>
 
-          <StaggerContainer
-            className="flex flex-col"
-            staggerDelay={0.2}
-            initialDelay={0.6}
-          >
+        {/* Project Images */}
+        {project.images && project.images.length > 0 && (
+          <div className="mb-16">
             {project.images.map((img, idx) => (
-              <StaggerItem key={idx} variant="fadeUp">
-                <ProjectImage
-                  src={img.src}
-                  alt={img.alt}
-                  onClick={() => openImageModal(img.src, img.alt)}
-                />
-              </StaggerItem>
+              <ProjectImage
+                key={idx}
+                src={img.src}
+                alt={img.alt}
+                index={idx}
+                onClick={() => openImageModal(img.src, img.alt)}
+              />
             ))}
-          </StaggerContainer>
+          </div>
+        )}
 
-          {project.sections.map((section, idx) => (
-            <ProjectSection key={idx} title={section.title}>
-              <StaggerContainer
-                className="list-disc pl-5 mb-8 text-lg"
-                staggerDelay={0.1}
-              >
-                {section.content.map((item, itemIdx) => (
-                  <StaggerItem key={itemIdx} variant="fadeUp">
-                    <li dangerouslySetInnerHTML={{ __html: item }} />
-                  </StaggerItem>
-                ))}
-              </StaggerContainer>
-            </ProjectSection>
-          ))}
-        </div>
-      </AnimatedSection>
+        {/* Project Sections */}
+        {project.sections && project.sections.map((section, idx) => (
+          <ProjectSection key={idx} title={section.title}>
+            <ul className="space-y-4">
+              {section.content.map((item, itemIdx) => (
+                <motion.li
+                  key={itemIdx}
+                  className="flex items-start gap-3 text-lg leading-relaxed"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.4, delay: itemIdx * 0.05 }}
+                >
+                  <span className="flex-shrink-0 w-2 h-2 bg-gradient-to-br from-primary to-secondary rounded-full mt-2" />
+                  <span 
+                    dangerouslySetInnerHTML={{ __html: item }}
+                    className="flex-1"
+                  />
+                </motion.li>
+              ))}
+            </ul>
+          </ProjectSection>
+        ))}
+      </div>
       
       <ImageModal
         image={image}
         isOpen={isImageModalOpen}
         handleClose={handleClose}
       />
-    </>
+    </div>
   );
 };
 
