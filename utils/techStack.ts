@@ -4,36 +4,36 @@ export const techStack = [
   {
     iconName: "angular",
     name: "Angular",
-    level: 95,
+    category: "Frontend",
   },
   {
     iconName: "react",
     name: "React",
-    level: 90,
+    category: "Frontend",
   },
   {
     iconName: "js-square",
     name: "TypeScript",
-    level: 92,
+    category: "Language",
   },
   {
     iconName: "html5",
     name: "HTML/CSS",
-    level: 95,
+    category: "Frontend",
   },
   {
     iconName: "node-js",
     name: "Node.js",
-    level: 80,
+    category: "Backend",
   },
   {
     iconName: "git-alt",
     name: "Git",
-    level: 88,
+    category: "Tools",
   },
   {
     iconName: "vuejs",
     name: "Vue.js",
-    level: 75,
+    category: "Frontend",
   },
 ];

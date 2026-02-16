@@ -3,7 +3,7 @@ import React from "react";
 import { aboutMe } from "../../utils/aboutMe";
 import { playfair } from "../../utils/fonts";
 import { techStack } from "../../utils/techStack";
-import SkillProgress from "./SkillProgress";
+import TechCard from "./TechCard";
 import { IconName } from "@fortawesome/fontawesome-svg-core";
 import AnimatedSection from "./layout/AnimatedSection";
 import { FaChevronDown } from "react-icons/fa";
@@ -38,22 +38,22 @@ const AboutMe = () => {
       </motion.p>
 
       <motion.h2 
-        className="text-lg md:text-xl font-medium mb-4"
+        className="text-lg md:text-xl font-medium mb-6"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6, delay: 0.3 }}
       >
-        {`Technologies & Skills:`}
+        {`Technologies & Tools:`}
       </motion.h2>
       
-      <div className="space-y-4 mb-8">
-        {techStack.map(({ name, iconName, level }, index) => (
-          <SkillProgress
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+        {techStack.map(({ name, iconName, category }, index) => (
+          <TechCard
             key={name}
             name={name}
             iconName={iconName as IconName}
-            level={level}
+            category={category}
             index={index}
           />
         ))}
