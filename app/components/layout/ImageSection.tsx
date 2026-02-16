@@ -15,7 +15,7 @@ const ImageSection = () => {
 
   return (
     <section className="relative w-screen h-[50vh] flex flex-col md:flex-row md:fixed md:right-0 md:top-0 md:h-full items-center justify-center bg-primary md:w-5/12">
-      <StaggerContainer 
+      <StaggerContainer
         className="flex md:flex-col gap-4 mb-8 md:mb-0 md:absolute md:right-4 xl:right-8 2xl:right-12 md:top-1/2 md:-translate-y-1/2"
         staggerDelay={0.1}
         initialDelay={0.3}
@@ -23,11 +23,11 @@ const ImageSection = () => {
         {socialItems.map(({ link, icon }) => (
           <StaggerItem key={link} variant="scale">
             <motion.div
-              whileHover={{ 
-                scale: 1.25, 
+              whileHover={{
+                scale: 1.25,
                 rotate: 12,
                 x: -8,
-                transition: { type: "spring", stiffness: 300 }
+                transition: { type: "spring", stiffness: 300 },
               }}
               whileTap={{ scale: 0.9 }}
             >
@@ -40,22 +40,22 @@ const ImageSection = () => {
           </StaggerItem>
         ))}
       </StaggerContainer>
-      
+
       <motion.div
         className="flex items-center justify-center"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ 
-          duration: 0.8, 
+        transition={{
+          duration: 0.8,
           delay: 0.2,
-          ease: [0.25, 0.4, 0.25, 1]
+          ease: [0.25, 0.4, 0.25, 1],
         }}
       >
         <motion.div
-          whileHover={{ 
+          whileHover={{
             scale: 1.05,
             rotate: [0, -2, 2, -2, 0],
-            transition: { duration: 0.5 }
+            transition: { duration: 0.5 },
           }}
           whileTap={{ scale: 0.95 }}
         >
@@ -65,10 +65,11 @@ const ImageSection = () => {
                 icon: "🤪",
                 duration: 2500,
                 style: {
-                  zIndex: 1000,
-                  border: "1px solid #A45C5D",
+                  zIndex: 9999,
+                  border: "2px solid oklch(70% 0.28 285)",
                   padding: "12px",
-                  color: "#A45C5D",
+                  color: "oklch(70% 0.28 285)",
+                  background: "oklch(98% 0.01 280)",
                 },
               })
             }
@@ -79,7 +80,7 @@ const ImageSection = () => {
             height={800}
           />
         </motion.div>
-        
+
         {/* Animated ring around the image */}
         <motion.div
           className="absolute w-[65%] aspect-square md:w-56 lg:w-80 rounded-full border-2 border-white/30 pointer-events-none"
