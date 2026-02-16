@@ -12,13 +12,13 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: any;
-}): Promise<Metadata> {
-  const { id } = params;
-  const project = projects.find((proj) => proj.id.toString() === id);
+type Props = {
+  params: Promise<{ id: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const project = projects.find((proj) => proj.id === id);
 
   if (!project) {
     return {
@@ -60,9 +60,9 @@ export async function generateMetadata({
   };
 }
 
-const ProjectPage = ({ params }: { params: any }) => {
-  const { id } = params;
-  const project = projects.find((proj) => proj.id.toString() === id);
+const ProjectPage = async ({ params }: Props) => {
+  const { id } = await params;
+  const project = projects.find((proj) => proj.id === id);
 
   if (!project) {
     notFound();
@@ -70,8 +70,18 @@ const ProjectPage = ({ params }: { params: any }) => {
 
   if (!project.projectPage) {
     return (
-      <div className="flex items-center justify-center">
-        Project page not found
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-4">
+            Project Page Not Available
+          </h1>
+          <p className="text-base-content/70 mb-6">
+            This project doesn&apos;t have a dedicated page yet.
+          </p>
+          <a href="/" className="btn btn-primary">
+            Back to Home
+          </a>
+        </div>
       </div>
     );
   }

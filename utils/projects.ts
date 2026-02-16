@@ -59,7 +59,7 @@ export const projects = [
     },
   },
   {
-    id: 2,
+    id: "2",
     title: "this website",
     description:
       "Built a personal portfolio website using Next.js, Tailwind CSS, and TypeScript. Implemented SEO optimization and a responsive design",
@@ -68,28 +68,28 @@ export const projects = [
   },
 
   {
-    id: 3,
+    id: "3",
     title: "Startup Booster - Incharge Payment Processing System",
     description:
       "Led the frontend development using React, integrating multiple payment methods like DTS and Multipass to enhance the payment experience.",
     tags: ["React", "JavaScript", "NextJS"],
   },
   {
-    id: 4,
+    id: "4",
     title: "Startup Booster - Hadassah Hospital Web Platform",
     description:
       "Improved user experience and accessibility by implementing responsive design and dynamic features, ensuring compliance with accessibility standards.",
     tags: ["React", "JavaScript", "NextJS"],
   },
   {
-    id: 5,
+    id: "5",
     title: "IronSource - Mobile Development",
     description:
       'Transitioned to mobile development, mastering Unity3D, Android, and iOS. Developed an automatic release process and created the "Alpha Package" tool for easier SDK implementation and testing.',
     tags: ["Unity3D", "Android", "iOS"],
   },
   {
-    id: 6,
+    id: "6",
     title: "FriendsBook",
     description:
       "Developed a social app with CSS, Vue.js, Vuex, and Firebase. Created functionalities for posting, liking, commenting, and real-time updates to deliver a seamless social media experience",
