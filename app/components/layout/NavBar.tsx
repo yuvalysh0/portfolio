@@ -48,7 +48,7 @@ const NavBar = () => {
       />
       
       <motion.nav 
-        className="sticky navbar top-0 w-screen md:w-full flex justify-between items-center py-4 px-8 bg-base-100/95 backdrop-blur-sm z-50"
+        className="sticky navbar top-0 w-full flex justify-between items-center py-4 px-4 md:px-8 bg-base-100/95 backdrop-blur-sm z-50 border-b border-base-300/50"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
@@ -57,7 +57,7 @@ const NavBar = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <Link href="/" className={playfair.className}>
+          <Link href="/" className={`text-xl md:text-2xl font-bold ${playfair.className}`}>
             Y.Shalom;
           </Link>
         </motion.div>
