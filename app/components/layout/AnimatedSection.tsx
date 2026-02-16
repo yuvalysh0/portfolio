@@ -1,53 +1,71 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
-import { motion, MotionProps } from "framer-motion";
+import React from "react";
+import { motion, useInView, Variants } from "framer-motion";
+import { useRef } from "react";
 
-interface AnimatedSectionProps extends MotionProps {
+interface AnimatedSectionProps {
   children: React.ReactNode;
   className?: string;
   id?: string;
+  variant?: "fadeUp" | "fadeIn" | "slideLeft" | "slideRight" | "scale";
+  delay?: number;
+  duration?: number;
+  once?: boolean;
 }
+
+const animationVariants: Record<string, Variants> = {
+  fadeUp: {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+  },
+  fadeIn: {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  },
+  slideLeft: {
+    hidden: { opacity: 0, x: -50 },
+    visible: { opacity: 1, x: 0 },
+  },
+  slideRight: {
+    hidden: { opacity: 0, x: 50 },
+    visible: { opacity: 1, x: 0 },
+  },
+  scale: {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1 },
+  },
+};
 
 const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   children,
   className,
-  ...props
+  id,
+  variant = "fadeUp",
+  delay = 0,
+  duration = 0.6,
+  once = true,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      {
-        threshold: 0.1,
-      }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, []);
+  const isInView = useInView(ref, { 
+    once, 
+    margin: "-100px",
+    amount: 0.3 
+  });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5 }}
+      id={id}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={animationVariants[variant]}
+      transition={{ 
+        duration, 
+        delay,
+        ease: [0.25, 0.4, 0.25, 1]
+      }}
       className={className}
-      {...props}>
+    >
       {children}
     </motion.div>
   );

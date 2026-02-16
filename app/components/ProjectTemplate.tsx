@@ -4,7 +4,10 @@ import { playfair } from "@/utils/fonts";
 import Link from "next/link";
 import Image from "next/image";
 import AnimatedSection from "@/app/components/layout/AnimatedSection";
+import StaggerContainer from "@/app/components/layout/StaggerContainer";
+import StaggerItem from "@/app/components/layout/StaggerItem";
 import ImageModal from "@/app/components/ImageModal";
+import { motion } from "framer-motion";
 
 interface ProjectSectionProps {
   title: string;
@@ -12,10 +15,16 @@ interface ProjectSectionProps {
 }
 
 const ProjectSection: React.FC<ProjectSectionProps> = ({ title, children }) => (
-  <section className="mb-8">
+  <motion.section 
+    className="mb-8"
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-100px" }}
+    transition={{ duration: 0.6 }}
+  >
     <h2 className="text-2xl font-semibold mb-4">{title}</h2>
     {children}
-  </section>
+  </motion.section>
 );
 
 interface ProjectImageProps {
@@ -25,9 +34,16 @@ interface ProjectImageProps {
 }
 
 const ProjectImage: React.FC<ProjectImageProps> = ({ src, alt, onClick }) => (
-  <div
-    className="flex items-center justify-center w-full cursor-pointer hover:scale-105 transition-transform mb-8"
-    onClick={onClick}>
+  <motion.div
+    className="flex items-center justify-center w-full cursor-pointer mb-8 overflow-hidden rounded-lg"
+    onClick={onClick}
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.98 }}
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-100px" }}
+    transition={{ duration: 0.6 }}
+  >
     <Image
       src={src}
       alt={alt}
@@ -35,7 +51,7 @@ const ProjectImage: React.FC<ProjectImageProps> = ({ src, alt, onClick }) => (
       height={600}
       className="rounded-lg"
     />
-  </div>
+  </motion.div>
 );
 
 interface ProjectTemplateProps {
@@ -60,41 +76,82 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({ project }) => {
 
   return (
     <>
-      <nav className="sticky navbar top-0 w-screen md:w-full flex justify-between items-center py-4 px-8 bg-base-100 z-50">
+      <motion.nav 
+        className="sticky navbar top-0 w-screen md:w-full flex justify-between items-center py-4 px-8 bg-base-100 z-50"
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <Link href="/" className={playfair.className}>
           Y.Shalom;
         </Link>
-        <Link href="/" className="btn btn-outline btn-sm">
-          Go back to Home
-        </Link>
-      </nav>
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <Link href="/" className="btn btn-outline btn-sm">
+            Go back to Home
+          </Link>
+        </motion.div>
+      </motion.nav>
+      
       <AnimatedSection
         className="flex flex-col justify-center items-center min-h-[70vh] lg:min-h-[80vh] p-12"
-        id="projects">
+        id="projects"
+        variant="fadeUp"
+      >
         <div className="max-w-4xl">
-          <h1 className="text-4xl font-bold mb-4">{project.title}</h1>
-          <p className="text-lg mb-8">{project.description}</p>
+          <motion.h1 
+            className="text-4xl font-bold mb-4"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            {project.title}
+          </motion.h1>
+          
+          <motion.p 
+            className="text-lg mb-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            {project.description}
+          </motion.p>
 
-          {project.images.map((img, idx) => (
-            <ProjectImage
-              key={idx}
-              src={img.src}
-              alt={img.alt}
-              onClick={() => openImageModal(img.src, img.alt)}
-            />
-          ))}
+          <StaggerContainer
+            className="flex flex-col"
+            staggerDelay={0.2}
+            initialDelay={0.6}
+          >
+            {project.images.map((img, idx) => (
+              <StaggerItem key={idx} variant="fadeUp">
+                <ProjectImage
+                  src={img.src}
+                  alt={img.alt}
+                  onClick={() => openImageModal(img.src, img.alt)}
+                />
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
 
           {project.sections.map((section, idx) => (
             <ProjectSection key={idx} title={section.title}>
-              <ul className="list-disc pl-5 mb-8 text-lg">
-                {section.content.map((item, idx) => (
-                  <li key={idx} dangerouslySetInnerHTML={{ __html: item }} />
+              <StaggerContainer
+                className="list-disc pl-5 mb-8 text-lg"
+                staggerDelay={0.1}
+              >
+                {section.content.map((item, itemIdx) => (
+                  <StaggerItem key={itemIdx} variant="fadeUp">
+                    <li dangerouslySetInnerHTML={{ __html: item }} />
+                  </StaggerItem>
                 ))}
-              </ul>
+              </StaggerContainer>
             </ProjectSection>
           ))}
         </div>
       </AnimatedSection>
+      
       <ImageModal
         image={image}
         isOpen={isImageModalOpen}

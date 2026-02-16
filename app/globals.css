@@ -40,6 +40,47 @@
 @utility text-balance {
   text-wrap: balance;
 }
+
 @theme {
   --min-height-hero: calc(100vh - 4rem);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: oklch(98% 0 0);
+}
+
+::-webkit-scrollbar-thumb {
+  background: oklch(80% 0.114 19.571);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(70% 0.114 19.571);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(80% 0.114 19.571) oklch(98% 0 0);
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
