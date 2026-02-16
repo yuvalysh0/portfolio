@@ -6,6 +6,7 @@ import { playfair } from "../../../utils/fonts";
 import { Link as ScrollLink } from "react-scroll";
 import { CgMenuRight, CgClose } from "react-icons/cg";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
+import ThemeToggle from "../ThemeToggle";
 
 const links = [
   { href: "home", label: "Home" },
@@ -61,7 +62,7 @@ const NavBar = () => {
           </Link>
         </motion.div>
         
-        <div className="hidden md:flex gap-4">
+        <div className="hidden md:flex gap-4 items-center">
           {links.map(({ href, label }) => (
             <motion.div
               key={label}
@@ -94,9 +95,15 @@ const NavBar = () => {
               </ScrollLink>
             </motion.div>
           ))}
+          
+          {/* Theme toggle for desktop */}
+          <ThemeToggle />
         </div>
         
-        <div className="md:hidden z-50">
+        <div className="md:hidden z-50 flex items-center gap-3">
+          {/* Theme toggle for mobile */}
+          <ThemeToggle />
+          
           <AnimatePresence mode="wait">
             {isMenuOpen ? (
               <motion.div

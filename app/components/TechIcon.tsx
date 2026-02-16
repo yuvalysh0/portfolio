@@ -43,10 +43,7 @@ const TechIcon = ({ iconName, name, style = "" }: ITechIcon) => (
     
     {/* Animated glow effect on hover */}
     <motion.div
-      className="absolute inset-0 rounded-full blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300 -z-10"
-      style={{
-        background: "radial-gradient(circle, oklch(80% 0.114 19.571) 0%, transparent 70%)"
-      }}
+      className="absolute inset-0 rounded-full blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-300 -z-10 bg-gradient-to-r from-primary to-secondary"
     />
   </motion.div>
 );

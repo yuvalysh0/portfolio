@@ -50,7 +50,7 @@ const Hero = () => {
       animate="visible"
     >
       <Wave className="text-primary absolute -top-2 left-0 w-full md:hidden" />
-      
+
       <motion.h1
         className={`text-5xl md:text-8xl font-bold mb-2 z-30 ${playfair.className}`}
         variants={titleVariants}
@@ -71,15 +71,15 @@ const Hero = () => {
           </motion.span>
         ))}
       </motion.h1>
-      
-      <motion.h2 
+
+      <motion.h2
         className="text-xl md:text-2xl mb-4"
         variants={subtitleVariants}
       >
         {heroText.subtitle}
       </motion.h2>
-      
-      <motion.p 
+
+      <motion.p
         className="text-lg md:text-xl font-light"
         variants={descriptionVariants}
       >
@@ -88,12 +88,12 @@ const Hero = () => {
 
       {/* Animated gradient background */}
       <motion.div
-        className="absolute inset-0 -z-10 opacity-30"
+        className="absolute inset-0 -z-10 opacity-20"
         animate={{
           background: [
-            "radial-gradient(circle at 20% 50%, oklch(80% 0.114 19.571) 0%, transparent 50%)",
-            "radial-gradient(circle at 80% 50%, oklch(80% 0.114 19.571) 0%, transparent 50%)",
-            "radial-gradient(circle at 20% 50%, oklch(80% 0.114 19.571) 0%, transparent 50%)",
+            "radial-gradient(circle at 20% 50%, oklch(70% 0.28 285) 0%, transparent 50%)",
+            "radial-gradient(circle at 80% 50%, oklch(75% 0.28 330) 0%, transparent 50%)",
+            "radial-gradient(circle at 20% 50%, oklch(70% 0.28 285) 0%, transparent 50%)",
           ],
         }}
         transition={{
