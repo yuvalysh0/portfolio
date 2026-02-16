@@ -83,7 +83,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={poppins.className}>
+      <body className={poppins.className} suppressHydrationWarning>
         <LoadingScreen />
         <BackToTop />
         <main className="flex flex-col md:flex-row relative">
