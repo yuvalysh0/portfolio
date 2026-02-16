@@ -1,6 +1,8 @@
 import "./globals.css";
 import { poppins } from "../utils/fonts";
 import LayoutWrapper from "./components/layout/LayoutWrapper";
+import LoadingScreen from "./components/LoadingScreen";
+import BackToTop from "./components/BackToTop";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -82,6 +84,8 @@ export default function RootLayout({
         />
       </head>
       <body className={poppins.className}>
+        <LoadingScreen />
+        <BackToTop />
         <main className="flex flex-col md:flex-row relative">
           <section className="md:w-7/12 flex flex-col">
             <LayoutWrapper>{children}</LayoutWrapper>

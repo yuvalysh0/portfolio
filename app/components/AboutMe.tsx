@@ -3,19 +3,14 @@ import React from "react";
 import { aboutMe } from "../../utils/aboutMe";
 import { playfair } from "../../utils/fonts";
 import { techStack } from "../../utils/techStack";
-import TechIcon from "./TechIcon";
+import SkillProgress from "./SkillProgress";
 import { IconName } from "@fortawesome/fontawesome-svg-core";
 import AnimatedSection from "./layout/AnimatedSection";
-import StaggerContainer from "./layout/StaggerContainer";
-import StaggerItem from "./layout/StaggerItem";
 import { FaChevronDown } from "react-icons/fa";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
 const AboutMe = () => {
-  const iconStyle =
-    "transform transition-transform w-10 h-10 hover:text-primary";
-  
   return (
     <AnimatedSection
       className="flex flex-col justify-center min-h-[70vh] lg:min-h-[80vh] p-10 md:pe-56"
@@ -33,7 +28,7 @@ const AboutMe = () => {
       </motion.h1>
       
       <motion.p 
-        className="text-lg md:text-xl font-light mb-4"
+        className="text-lg md:text-xl font-light mb-6"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -43,30 +38,26 @@ const AboutMe = () => {
       </motion.p>
 
       <motion.h2 
-        className="text-lg md:text-xl font-medium mb-2"
+        className="text-lg md:text-xl font-medium mb-4"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6, delay: 0.3 }}
       >
-        {`Technologies I've worked with:`}
+        {`Technologies & Skills:`}
       </motion.h2>
       
-      <StaggerContainer 
-        className="grid grid-cols-4 md:flex md:flex-wrap gap-4"
-        staggerDelay={0.08}
-        initialDelay={0.4}
-      >
-        {techStack.map(({ name, iconName }) => (
-          <StaggerItem key={name} variant="scale">
-            <TechIcon
-              iconName={iconName as IconName}
-              name={name}
-              style={iconStyle}
-            />
-          </StaggerItem>
+      <div className="space-y-4 mb-8">
+        {techStack.map(({ name, iconName, level }, index) => (
+          <SkillProgress
+            key={name}
+            name={name}
+            iconName={iconName as IconName}
+            level={level}
+            index={index}
+          />
         ))}
-      </StaggerContainer>
+      </div>
       
       <motion.div
         initial={{ opacity: 0, y: 20 }}

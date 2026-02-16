@@ -18,7 +18,7 @@ const contactCards: ContactCard[] = [
   {
     name: "Email",
     icon: <FaEnvelope className="w-8 h-8" />,
-    href: "mailto:yuvalysh@gmail.com", // Update with your email
+    href: "mailto:yuvalysh@gmail.com",
     color: "oklch(70% 0.28 285)", // Primary purple
     hoverColor: "oklch(75% 0.28 330)", // Pink
     description: "Drop me a message",
