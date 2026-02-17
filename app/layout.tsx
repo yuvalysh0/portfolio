@@ -3,6 +3,7 @@ import { poppins } from "../utils/fonts";
 import LayoutWrapper from "./components/layout/LayoutWrapper";
 import LoadingScreen from "./components/LoadingScreen";
 import BackToTop from "./components/BackToTop";
+import EasterEggs from "./components/EasterEggs";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -86,6 +87,7 @@ export default function RootLayout({
       <body className={poppins.className} suppressHydrationWarning>
         <LoadingScreen />
         <BackToTop />
+        <EasterEggs />
         <main className="flex flex-col md:flex-row relative w-full min-h-screen">
           <section className="w-full md:w-7/12 flex flex-col">
             <LayoutWrapper>{children}</LayoutWrapper>

@@ -6,6 +6,7 @@ import Contact from "./components/Contact";
 import Projects from "./components/Projects";
 import Statistics from "./components/Statistics";
 import Testimonials from "./components/Testimonials";
+import GitHubActivity from "./components/GitHubActivity";
 
 export default function Home() {
   const structuredData = {
@@ -50,6 +51,7 @@ export default function Home() {
       <Statistics />
       <Experience />
       <Projects />
+      <GitHubActivity />
       <Testimonials />
       <Contact />
       <Footer />

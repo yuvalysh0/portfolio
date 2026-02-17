@@ -13,6 +13,7 @@ const links = [
   { href: "stats", label: "Stats" },
   { href: "experience", label: "Experience" },
   { href: "projects", label: "Projects" },
+  { href: "github", label: "GitHub" },
   { href: "testimonials", label: "Testimonials" },
   { href: "contact", label: "Contact" },
 ];
@@ -59,22 +60,22 @@ const NavBar = () => {
         className="fixed top-0 left-0 right-0 h-1 bg-primary origin-left z-[100]"
         style={{ scaleX }}
       />
-      
-      <motion.nav 
+
+      <motion.nav
         className="sticky navbar top-0 w-full flex justify-between items-center py-4 px-4 md:px-8 bg-base-100/95 backdrop-blur-sm z-50 border-b border-base-300/50"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <Link href="/" className={`text-xl md:text-2xl font-bold ${playfair.className}`}>
+        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <Link
+            href="/"
+            className={`text-xl md:text-2xl font-bold ${playfair.className}`}
+          >
             Y.Shalom;
           </Link>
         </motion.div>
-        
+
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-4 items-center">
           {links.map(({ href, label }) => (
@@ -109,14 +110,14 @@ const NavBar = () => {
               </ScrollLink>
             </motion.div>
           ))}
-          
+
           <ThemeToggle />
         </div>
-        
+
         {/* Mobile Menu Button */}
         <div className="md:hidden z-[80] flex items-center gap-3 relative">
           <ThemeToggle />
-          
+
           <motion.button
             onClick={toggleMenu}
             className="relative w-10 h-10 flex items-center justify-center rounded-lg hover:bg-base-200 transition-colors"
@@ -126,7 +127,9 @@ const NavBar = () => {
             <div className="w-6 h-5 flex flex-col justify-between">
               <motion.span
                 className="w-full h-0.5 bg-current rounded-full"
-                animate={isMenuOpen ? { rotate: 45, y: 9 } : { rotate: 0, y: 0 }}
+                animate={
+                  isMenuOpen ? { rotate: 45, y: 9 } : { rotate: 0, y: 0 }
+                }
                 transition={{ duration: 0.3 }}
               />
               <motion.span
@@ -136,7 +139,9 @@ const NavBar = () => {
               />
               <motion.span
                 className="w-full h-0.5 bg-current rounded-full"
-                animate={isMenuOpen ? { rotate: -45, y: -9 } : { rotate: 0, y: 0 }}
+                animate={
+                  isMenuOpen ? { rotate: -45, y: -9 } : { rotate: 0, y: 0 }
+                }
                 transition={{ duration: 0.3 }}
               />
             </div>
@@ -157,7 +162,7 @@ const NavBar = () => {
               className="fixed inset-0 bg-black/60 backdrop-blur-md z-[60] md:hidden"
               onClick={toggleMenu}
             />
-            
+
             {/* Menu Panel - Side Drawer */}
             <motion.div
               initial={{ x: "100%" }}
