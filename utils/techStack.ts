@@ -47,11 +47,6 @@ export const techStack = [
     category: "Backend",
   },
   {
-    iconName: "database",
-    name: "Prisma",
-    category: "Backend",
-  },
-  {
     iconName: "git-alt",
     name: "Git",
     category: "Tools",

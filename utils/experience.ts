@@ -4,8 +4,13 @@ export const experience = [
     company: "LSports",
     position: "Frontend Developer",
     description: [
-      "Architect and develop real-time sports data visualization dashboards using Angular 17+, Nx monorepo, and Chart.js for processing millions of live events.",
-      "Drive cross-functional collaboration with product and backend teams to deliver data-driven features that enhance user decision-making capabilities.",
+      "Architect and develop enterprise-scale sports data visualization dashboards using Angular 18 (standalone APIs, signals, new control flow) in an Nx monorepo architecture.",
+      "Build real-time data streaming interfaces processing millions of live sports events with Chart.js, WebSockets, and RxJS for reactive state management.",
+      "Implement advanced performance optimizations including virtual scrolling, lazy loading, and memoization to handle high-frequency data updates without UI lag.",
+      "Design and develop reusable component libraries and shared utilities across multiple micro-frontends in the Nx workspace.",
+      "Collaborate closely with product managers, UX designers, and backend teams to translate complex data requirements into intuitive, user-friendly interfaces.",
+      "Lead code reviews and mentor junior developers on modern Angular patterns, TypeScript best practices, and reactive programming principles.",
+      "Optimize bundle sizes and improve Core Web Vitals through code-splitting, tree-shaking, and strategic use of Angular's defer blocks.",
     ],
   },
   {
