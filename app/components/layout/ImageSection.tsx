@@ -14,7 +14,7 @@ const ImageSection = () => {
     "text-white text-4xl md:text-3xl transform transition-transform duration-300";
 
   return (
-    <section className="relative w-screen h-[50vh] flex flex-col md:flex-row md:fixed md:right-0 md:top-0 md:h-full items-center justify-center bg-primary md:w-5/12">
+    <section className="relative w-full h-[50vh] flex flex-col md:fixed md:right-0 md:top-0 md:h-full items-center justify-center bg-primary md:w-5/12">
       <StaggerContainer
         className="flex md:flex-col gap-4 mb-8 md:mb-0 md:absolute md:right-4 xl:right-8 2xl:right-12 md:top-1/2 md:-translate-y-1/2"
         staggerDelay={0.1}

@@ -86,7 +86,7 @@ export default function RootLayout({
       <body className={poppins.className} suppressHydrationWarning>
         <LoadingScreen />
         <BackToTop />
-        <main className="flex flex-col relative w-full">
+        <main className="flex flex-col md:flex-row relative w-full min-h-screen">
           <section className="w-full md:w-7/12 flex flex-col">
             <LayoutWrapper>{children}</LayoutWrapper>
           </section>
