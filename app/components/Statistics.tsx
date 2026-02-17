@@ -116,7 +116,7 @@ const StatCard = ({
   return (
     <motion.div
       ref={ref}
-      className="relative group"
+      className="relative group h-full"
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{
@@ -126,7 +126,7 @@ const StatCard = ({
       }}
     >
       <motion.div
-        className="relative overflow-hidden rounded-2xl bg-base-200/50 backdrop-blur-sm border border-base-300 p-8 text-center"
+        className="relative overflow-hidden rounded-2xl bg-base-200/50 backdrop-blur-sm border border-base-300 p-8 text-center h-full flex flex-col justify-center"
         whileHover={{
           scale: 1.05,
           borderColor: "oklch(var(--p))",
