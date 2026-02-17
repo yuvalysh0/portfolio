@@ -18,8 +18,6 @@ const links = [
 const NavBar = () => {
   const [isSelected, setIsSelected] = useState("Home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -28,15 +26,6 @@ const NavBar = () => {
   });
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
-
-  // Handle scroll effect
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Close menu on escape key
   useEffect(() => {
@@ -65,104 +54,95 @@ const NavBar = () => {
     <>
       {/* Scroll progress bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent origin-left z-[100]"
+        className="fixed top-0 left-0 right-0 h-1 bg-primary origin-left z-[100]"
         style={{ scaleX }}
       />
       
       <motion.nav 
-        className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
-          scrolled 
-            ? "bg-base-100/80 backdrop-blur-lg shadow-lg" 
-            : "bg-transparent"
-        }`}
+        className="sticky navbar top-0 w-full flex justify-between items-center py-4 px-4 md:px-8 bg-base-100/95 backdrop-blur-sm z-50 border-b border-base-300/50"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
+        transition={{ duration: 0.5 }}
       >
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="flex justify-between items-center h-16 md:h-20">
-            {/* Logo */}
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <Link href="/" className={`text-xl md:text-2xl font-bold ${playfair.className}`}>
+            Y.Shalom;
+          </Link>
+        </motion.div>
+        
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex gap-4 items-center">
+          {links.map(({ href, label }) => (
             <motion.div
-              whileHover={{ scale: 1.05 }}
+              key={label}
+              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Link 
-                href="/" 
-                className={`text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent ${playfair.className}`}
+              <ScrollLink
+                to={href}
+                smooth={true}
+                duration={500}
+                spy={true}
+                offset={-70}
+                activeClass="active"
+                spyThrottle={100}
+                className={`text-gray-500 hover:text-gray-600 cursor-pointer transition-colors relative ${
+                  label === isSelected && "text-primary font-bold"
+                }`}
+                onSetActive={() => setIsSelected(label)}
               >
-                Y.Shalom
-              </Link>
+                {label}
+                {label === isSelected && (
+                  <motion.div
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
+                    layoutId="underline"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                )}
+              </ScrollLink>
             </motion.div>
-            
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
-              {links.map(({ href, label }) => (
-                <ScrollLink
-                  key={label}
-                  to={href}
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  offset={-80}
-                  activeClass="active"
-                  spyThrottle={100}
-                  className={`relative cursor-pointer text-sm font-medium transition-colors duration-200 ${
-                    label === isSelected 
-                      ? "text-primary" 
-                      : "text-base-content/70 hover:text-base-content"
-                  }`}
-                  onSetActive={() => setIsSelected(label)}
-                >
-                  {label}
-                  {label === isSelected && (
-                    <motion.div
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-secondary"
-                      layoutId="navbar-underline"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  )}
-                </ScrollLink>
-              ))}
-              
-              <ThemeToggle />
+          ))}
+          
+          <ThemeToggle />
+        </div>
+        
+        {/* Mobile Menu Button */}
+        <div className="md:hidden z-[80] flex items-center gap-3 relative">
+          <ThemeToggle />
+          
+          <motion.button
+            onClick={toggleMenu}
+            className="relative w-10 h-10 flex items-center justify-center rounded-lg hover:bg-base-200 transition-colors"
+            whileTap={{ scale: 0.95 }}
+            aria-label="Toggle menu"
+          >
+            <div className="w-6 h-5 flex flex-col justify-between">
+              <motion.span
+                className="w-full h-0.5 bg-current rounded-full"
+                animate={isMenuOpen ? { rotate: 45, y: 9 } : { rotate: 0, y: 0 }}
+                transition={{ duration: 0.3 }}
+              />
+              <motion.span
+                className="w-full h-0.5 bg-current rounded-full"
+                animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              />
+              <motion.span
+                className="w-full h-0.5 bg-current rounded-full"
+                animate={isMenuOpen ? { rotate: -45, y: -9 } : { rotate: 0, y: 0 }}
+                transition={{ duration: 0.3 }}
+              />
             </div>
-            
-            {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center gap-3">
-              <ThemeToggle />
-              
-              <motion.button
-                onClick={toggleMenu}
-                className="relative w-10 h-10 flex items-center justify-center rounded-lg hover:bg-base-200 transition-colors"
-                whileTap={{ scale: 0.95 }}
-                aria-label="Toggle menu"
-              >
-                <div className="w-6 h-5 flex flex-col justify-between">
-                  <motion.span
-                    className="w-full h-0.5 bg-current rounded-full"
-                    animate={isMenuOpen ? { rotate: 45, y: 9 } : { rotate: 0, y: 0 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                  <motion.span
-                    className="w-full h-0.5 bg-current rounded-full"
-                    animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                  <motion.span
-                    className="w-full h-0.5 bg-current rounded-full"
-                    animate={isMenuOpen ? { rotate: -45, y: -9 } : { rotate: 0, y: 0 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </div>
-              </motion.button>
-            </div>
-          </div>
+          </motion.button>
         </div>
       </motion.nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Side Drawer */}
       <AnimatePresence>
         {isMenuOpen && (
           <>
@@ -176,7 +156,7 @@ const NavBar = () => {
               onClick={toggleMenu}
             />
             
-            {/* Menu Panel */}
+            {/* Menu Panel - Side Drawer */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
@@ -216,7 +196,7 @@ const NavBar = () => {
                   className="mt-8 mb-12"
                 >
                   <h2 className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                    Y.Shalom
+                    Y.Shalom;
                   </h2>
                   <p className="text-sm text-base-content/60 mt-2">
                     Frontend Developer
@@ -237,7 +217,7 @@ const NavBar = () => {
                         smooth={true}
                         duration={500}
                         spy={true}
-                        offset={-80}
+                        offset={-70}
                         activeClass="active"
                         className={`block px-4 py-3 rounded-lg text-xl font-medium transition-all duration-200 cursor-pointer ${
                           label === isSelected
