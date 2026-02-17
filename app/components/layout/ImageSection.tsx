@@ -42,7 +42,7 @@ const ImageSection = () => {
       </StaggerContainer>
 
       <motion.div
-        className="flex items-center justify-center"
+        className="relative flex items-center justify-center"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
@@ -52,6 +52,7 @@ const ImageSection = () => {
         }}
       >
         <motion.div
+          className="relative"
           whileHover={{
             scale: 1.05,
             rotate: [0, -2, 2, -2, 0],
@@ -73,27 +74,27 @@ const ImageSection = () => {
                 },
               })
             }
-            className="md:sticky object-cover rounded-full overflow-hidden w-[65%] aspect-square md:w-56 lg:w-80 drop-shadow-2xl shadow-slate-400 cursor-pointer hover:shadow-[#A45C5D] transition-shadow duration-300 z-10"
+            className="object-cover rounded-full overflow-hidden w-[65vw] max-w-[320px] aspect-square md:w-56 lg:w-80 drop-shadow-2xl shadow-slate-400 cursor-pointer hover:shadow-[#A45C5D] transition-shadow duration-300 relative z-10"
             src="/assets/images/profile-picture.jpg"
             alt="Profile Picture"
             width={800}
             height={800}
           />
-        </motion.div>
 
-        {/* Animated ring around the image */}
-        <motion.div
-          className="absolute w-[65%] aspect-square md:w-56 lg:w-80 rounded-full border-2 border-white/30 pointer-events-none"
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.3, 0.1, 0.3],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+          {/* Animated ring around the image - positioned relative to image */}
+          <motion.div
+            className="absolute inset-0 rounded-full border-2 border-white/30 pointer-events-none"
+            animate={{
+              scale: [1, 1.1, 1],
+              opacity: [0.3, 0.1, 0.3],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        </motion.div>
       </motion.div>
 
       <Toaster />
