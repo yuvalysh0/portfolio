@@ -2,6 +2,7 @@
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { statistics } from "@/utils/statistics";
+import { playfair } from "@/utils/fonts";
 
 interface StatCardProps {
   iconType: "clock" | "check" | "code" | "users";
@@ -224,16 +225,16 @@ export default function Statistics() {
 
       {/* Section Header */}
       <motion.div
-        className="text-center mb-12"
+        className="mb-12"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px", amount: 0.1 }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-          By the Numbers
+        <h2 className={`text-4xl md:text-6xl font-bold mb-4 ${playfair.className}`}>
+          By the Numbers.
         </h2>
-        <p className="text-base-content/70 text-lg">
+        <p className="text-lg md:text-xl font-light">
           Building digital experiences that make a difference
         </p>
       </motion.div>
