@@ -12,6 +12,16 @@ export const techStack = [
     category: "Frontend",
   },
   {
+    iconName: "node",
+    name: "Next.js",
+    category: "Frontend",
+  },
+  {
+    iconName: "js",
+    name: "JavaScript",
+    category: "Language",
+  },
+  {
     iconName: "js-square",
     name: "TypeScript",
     category: "Language",
@@ -22,8 +32,23 @@ export const techStack = [
     category: "Frontend",
   },
   {
+    iconName: "css3-alt",
+    name: "Tailwind CSS",
+    category: "Styling",
+  },
+  {
+    iconName: "sass",
+    name: "SCSS",
+    category: "Styling",
+  },
+  {
     iconName: "node-js",
     name: "Node.js",
+    category: "Backend",
+  },
+  {
+    iconName: "database",
+    name: "Prisma",
     category: "Backend",
   },
   {
