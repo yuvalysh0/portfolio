@@ -48,8 +48,8 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { 
     once, 
-    margin: "-100px",
-    amount: 0.3 
+    margin: "-50px",
+    amount: 0.1 
   });
 
   return (

@@ -17,7 +17,7 @@ const Contact = () => {
           className={`text-5xl md:text-6xl font-bold mb-4 text-center ${playfair.className}`}
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px", amount: 0.1 }}
           transition={{ duration: 0.6 }}
         >
           Let&apos;s Connect.
@@ -27,7 +27,7 @@ const Contact = () => {
           className="text-lg md:text-xl font-light mb-12 text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px", amount: 0.1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           I&apos;m always open to discussing new projects, creative ideas, or
@@ -37,7 +37,7 @@ const Contact = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px", amount: 0.1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex justify-center"
         >

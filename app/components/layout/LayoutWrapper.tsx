@@ -7,11 +7,11 @@ import { usePathname } from "next/navigation";
 const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
   return (
-    <div>
+    <>
       {pathname === "/" && <NavBar />}
-      <ImageSection />
+      {pathname === "/" && <ImageSection />}
       {children}
-    </div>
+    </>
   );
 };
 

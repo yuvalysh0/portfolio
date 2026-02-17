@@ -16,7 +16,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ title, children }) => (
     className="mb-12"
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-100px" }}
+    viewport={{ once: true, margin: "-50px", amount: 0.1 }}
     transition={{ duration: 0.6 }}
   >
     <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
@@ -44,7 +44,7 @@ const ProjectImage: React.FC<ProjectImageProps> = ({
     onClick={onClick}
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-100px" }}
+    viewport={{ once: true, margin: "-50px", amount: 0.1 }}
     transition={{ duration: 0.6, delay: index * 0.1 }}
   >
     <motion.div

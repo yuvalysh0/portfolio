@@ -19,7 +19,7 @@ const Experience = () => {
         className={`text-5xl md:text-6xl font-bold mb-8 md:mb-12 ${playfair.className}`}
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: "-50px", amount: 0.1 }}
         transition={{ duration: 0.6 }}
       >
         Experience.

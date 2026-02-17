@@ -28,7 +28,7 @@ const Projects = () => {
         className={`text-4xl md:text-6xl font-bold mb-4 ${playfair.className}`}
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: "-50px", amount: 0.1 }}
         transition={{ duration: 0.6 }}
       >
         Key Projects.
@@ -39,7 +39,7 @@ const Projects = () => {
         className="flex flex-wrap gap-2 mb-6"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: "-50px", amount: 0.1 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
         {["All", ...allTags.slice(0, 6)].map((tag) => (
