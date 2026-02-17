@@ -4,6 +4,7 @@ import Experience from "./components/Experience";
 import Footer from "./components/layout/Footer";
 import Contact from "./components/Contact";
 import Projects from "./components/Projects";
+import Statistics from "./components/Statistics";
 
 export default function Home() {
   const structuredData = {
@@ -45,6 +46,7 @@ export default function Home() {
       />
       <Hero />
       <AboutMe />
+      <Statistics />
       <Experience />
       <Projects />
       <Contact />
