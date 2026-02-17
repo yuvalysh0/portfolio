@@ -100,7 +100,7 @@ const NavBar = () => {
           <ThemeToggle />
         </div>
         
-        <div className="md:hidden z-50 flex items-center gap-3">
+        <div className="md:hidden z-[80] flex items-center gap-3 relative">
           {/* Theme toggle for mobile */}
           <ThemeToggle />
           
@@ -141,44 +141,84 @@ const NavBar = () => {
 
         <AnimatePresence>
           {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, x: "100%" }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: "100%" }}
-              transition={{ duration: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
-              className={`md:hidden fixed inset-0 bg-base-100 flex flex-col gap-6 items-center justify-center z-40 ${playfair.className}`}
-            >
-              {links.map(({ href, label }, index) => (
-                <motion.div
-                  key={label}
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 50 }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ scale: 1.1, x: 10 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <ScrollLink
-                    to={href}
-                    smooth={true}
-                    duration={500}
-                    spy={true}
-                    offset={-70}
-                    activeClass="active"
-                    spyThrottle={100}
-                    className={`text-5xl cursor-pointer ${
-                      label === isSelected
-                        ? "font-bold text-primary"
-                        : "text-primary-content"
-                    }`}
-                    onSetActive={() => setIsSelected(label)}
-                    onClick={toggleMenu}
+            <>
+              {/* Backdrop overlay */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="md:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[60]"
+                onClick={toggleMenu}
+              />
+              
+              {/* Menu content */}
+              <motion.div
+                initial={{ opacity: 0, x: "100%" }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: "100%" }}
+                transition={{ duration: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
+                className={`md:hidden fixed inset-0 bg-gradient-to-br from-base-100 via-base-100 to-base-200 flex flex-col gap-8 items-center justify-center z-[70] shadow-2xl ${playfair.className}`}
+              >
+                {links.map(({ href, label }, index) => (
+                  <motion.div
+                    key={label}
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 50 }}
+                    transition={{ delay: index * 0.1 }}
+                    whileHover={{ scale: 1.1, x: 10 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    {label}
-                  </ScrollLink>
-                </motion.div>
-              ))}
-            </motion.div>
+                    <ScrollLink
+                      to={href}
+                      smooth={true}
+                      duration={500}
+                      spy={true}
+                      offset={-70}
+                      activeClass="active"
+                      spyThrottle={100}
+                      className={`text-5xl cursor-pointer transition-colors duration-200 ${
+                        label === isSelected
+                          ? "font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+                          : "text-base-content hover:text-primary"
+                      }`}
+                      onSetActive={() => setIsSelected(label)}
+                      onClick={toggleMenu}
+                    >
+                      {label}
+                    </ScrollLink>
+                  </motion.div>
+                ))}
+                
+                {/* Decorative elements */}
+                <motion.div
+                  className="absolute top-10 right-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl"
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    opacity: [0.3, 0.5, 0.3],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+                <motion.div
+                  className="absolute bottom-10 left-10 w-32 h-32 bg-secondary/10 rounded-full blur-3xl"
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    opacity: [0.3, 0.5, 0.3],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1.5,
+                  }}
+                />
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
       </motion.nav>
