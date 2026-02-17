@@ -10,8 +10,10 @@ import ThemeToggle from "../ThemeToggle";
 const links = [
   { href: "home", label: "Home" },
   { href: "about", label: "About" },
+  { href: "stats", label: "Stats" },
   { href: "experience", label: "Experience" },
   { href: "projects", label: "Projects" },
+  { href: "testimonials", label: "Testimonials" },
   { href: "contact", label: "Contact" },
 ];
 
